@@ -4,7 +4,7 @@ class_name Guard extends Resource
 @export var max_value : int
 
 ## Valor actual de guardia del personaje.
-var current_value : int = max_value :
+var current_value : int :
 	set(new_value):
 		current_value = clamp(new_value, 0, max_value)
 		if current_value == 0:
@@ -18,6 +18,9 @@ var broken : bool = false
 
 ## Flag que audita si la guardia del personaje puede recuperarse o no.
 var recovery_availible : bool = true
+
+func initialize() -> void:
+	current_value = max_value
 
 func reset() -> void:
 	current_value = max_value
